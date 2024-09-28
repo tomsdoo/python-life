@@ -25,10 +25,6 @@ class LifeCell:
     self.x = x
     self.y = y
     self.alive = alive
-  def set_alive(alive):
-    self.alive = alive
-  def get_above_cell(self):
-    return { "x": self.x, "y": self.y - 1 }
 
 class LifeBoard:
   def __init__(self, width, height):
