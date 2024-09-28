@@ -47,6 +47,16 @@ class LifeBoard:
         lives += 1
     return lives
 
+  @staticmethod
+  def get_next_state(current_alive_state, score):
+    if current_alive_state:
+      if score < 2 or score > 3:
+        return False
+    else:
+      if score == 3:
+        return True
+    return current_alive_state
+
   def go_to_next_state(self):
     changed = False
     next_cells = {}
@@ -54,13 +64,7 @@ class LifeBoard:
       for y in range(self.height):
         cell = self.cells[Point(x,y).to_string()]
         lives = self.get_around_state(x,y)
-        next_cell_alive = cell.alive
-        if cell.alive:
-          if lives < 2 or lives > 3:
-            next_cell_alive = False
-        else:
-          if lives == 3:
-            next_cell_alive = True
+        next_cell_alive = LifeBoard.get_next_state(cell.alive, lives)
         next_cells[Point(x,y).to_string()] = LifeCell(x,y,next_cell_alive)
         changed = changed or cell.alive != next_cell_alive
     self.cells = next_cells

@@ -74,6 +74,27 @@ class TestLifeBoard(unittest.TestCase):
           expected += 1
         self.assertEqual(board.get_around_state(1,1), expected)
 
+  def test_get_next_state(self):
+    self.assertEqual(LifeBoard.get_next_state(True, 0), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 1), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 2), True)
+    self.assertEqual(LifeBoard.get_next_state(True, 3), True)
+    self.assertEqual(LifeBoard.get_next_state(True, 4), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 5), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 6), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 7), False)
+    self.assertEqual(LifeBoard.get_next_state(True, 8), False)
+
+    self.assertEqual(LifeBoard.get_next_state(False, 0), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 1), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 2), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 3), True)
+    self.assertEqual(LifeBoard.get_next_state(False, 4), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 5), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 6), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 7), False)
+    self.assertEqual(LifeBoard.get_next_state(False, 8), False)
+
 if __name__ == "__main__":
   unittest.main()
 
