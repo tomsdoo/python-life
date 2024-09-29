@@ -49,13 +49,7 @@ class LifeBoard:
 
   @staticmethod
   def get_next_state(current_alive_state, score):
-    if current_alive_state:
-      if score < 2 or score > 3:
-        return False
-    else:
-      if score == 3:
-        return True
-    return current_alive_state
+    return score == 3 or score == 2 and current_alive_state
 
   def go_to_next_state(self):
     changed = False
