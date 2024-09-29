@@ -82,7 +82,7 @@ class LifeBoard:
 
 if __name__ == "__main__":
   board = LifeBoard(20,10)
-  for i in range(100):
+  while True:
     os.system("clear")
     board.print_state();
     changed = board.go_to_next_state()
