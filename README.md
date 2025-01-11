@@ -6,11 +6,7 @@
 #### with docker
 
 ``` sh
-docker image build --no-cache -f Dockerfile -t python-life:v1.0.0 .
-```
-
-``` sh
-docker run -it --rm python-life:v1.0.0
+docker run -it --rm $(docker build -q .)
 ```
 
 #### run locally
