@@ -9,6 +9,10 @@
 docker run -it --rm $(docker build -q .)
 ```
 
+``` sh
+docker run -it --rm ghcr.io/tomsdoo/python-life:main
+```
+
 #### run locally
 
 ``` sh
